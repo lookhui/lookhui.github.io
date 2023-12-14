@@ -3662,6 +3662,7 @@ main >.inner {
 }
 #loading {
   background-color: var(--grey-1);
+  display: none;
 }
 .cat {
   position: relative;
