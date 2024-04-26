@@ -11,8 +11,8 @@
     <category term="mobile" />
     <category term="比赛" />
     <category term="reverse" />
-    <category term="CTF" />
     <category term="记录贴" />
+    <category term="CTF" />
     <entry>
         <id>https://lookhui.github.io/HTB-TwoDots-Horror/</id>
         <title>HTB-TwoDots_Horror</title>
