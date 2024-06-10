@@ -8,14 +8,14 @@
         <pubDate>Fri, 15 Dec 2023 20:23:43 +0800</pubDate>
         <lastBuildDate>Fri, 15 Dec 2023 20:23:43 +0800</lastBuildDate>
         <category>渗透</category>
-        <category>PWN</category>
         <category>WEB</category>
+        <category>PWN</category>
         <category>HTB</category>
         <category>mobile</category>
-        <category>reverse</category>
         <category>比赛</category>
-        <category>记录贴</category>
+        <category>reverse</category>
         <category>CTF</category>
+        <category>记录贴</category>
         <item>
             <guid isPermalink="true">https://lookhui.github.io/HTB-TwoDots-Horror/</guid>
             <title>HTB-TwoDots_Horror</title>

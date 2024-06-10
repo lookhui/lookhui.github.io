@@ -5,14 +5,14 @@
     <link href="https://lookhui.github.io" />
     <updated>2023-12-18T04:35:55.000Z</updated>
     <category term="渗透" />
-    <category term="PWN" />
     <category term="WEB" />
+    <category term="PWN" />
     <category term="HTB" />
     <category term="mobile" />
-    <category term="reverse" />
     <category term="比赛" />
-    <category term="记录贴" />
+    <category term="reverse" />
     <category term="CTF" />
+    <category term="记录贴" />
     <entry>
         <id>https://lookhui.github.io/HTB-Restauran/</id>
         <title>HTB-Restauran</title>
