@@ -10,12 +10,12 @@
         <category>渗透</category>
         <category>PWN</category>
         <category>WEB</category>
+        <category>HTB</category>
         <category>mobile</category>
         <category>比赛</category>
-        <category>HTB</category>
         <category>reverse</category>
-        <category>CTF</category>
         <category>记录贴</category>
+        <category>CTF</category>
         <item>
             <guid isPermalink="true">https://lookhui.github.io/HTB-Restauran/</guid>
             <title>HTB-Restauran</title>
