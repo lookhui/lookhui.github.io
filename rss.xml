@@ -3,7 +3,7 @@
     <channel>
         <title>ililiiY</title>
         <link>https://lookhui.github.io</link>
-        <description>坚持与努力</description>
+        <description>承蒙的是希望 做出你想做的</description>
         <language>zh-CN</language>
         <pubDate>Sun, 09 Mar 2025 20:25:51 +0800</pubDate>
         <lastBuildDate>Sun, 09 Mar 2025 20:25:51 +0800</lastBuildDate>
@@ -14,8 +14,8 @@
         <category>mobile</category>
         <category>比赛</category>
         <category>reverse</category>
-        <category>CTF</category>
         <category>记录贴</category>
+        <category>CTF</category>
         <item>
             <guid isPermalink="true">https://lookhui.github.io/web%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/</guid>
             <title>web前端安全笔记</title>

@@ -11,8 +11,8 @@
     <category term="mobile" />
     <category term="比赛" />
     <category term="reverse" />
-    <category term="CTF" />
     <category term="记录贴" />
+    <category term="CTF" />
     <entry>
         <id>https://lookhui.github.io/web%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/</id>
         <title>web前端安全笔记</title>

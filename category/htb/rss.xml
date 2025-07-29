@@ -3,7 +3,7 @@
     <channel>
         <title>ililiiY • Posts by &#34;htb&#34; category</title>
         <link>https://lookhui.github.io</link>
-        <description>坚持与努力</description>
+        <description>承蒙的是希望 做出你想做的</description>
         <language>zh-CN</language>
         <pubDate>Mon, 18 Dec 2023 12:35:55 +0800</pubDate>
         <lastBuildDate>Mon, 18 Dec 2023 12:35:55 +0800</lastBuildDate>
@@ -14,8 +14,8 @@
         <category>mobile</category>
         <category>比赛</category>
         <category>reverse</category>
-        <category>CTF</category>
         <category>记录贴</category>
+        <category>CTF</category>
         <item>
             <guid isPermalink="true">https://lookhui.github.io/HTB-Restauran/</guid>
             <title>HTB-Restauran</title>
