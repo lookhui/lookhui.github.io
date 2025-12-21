@@ -11,11 +11,11 @@
         <category>PWN</category>
         <category>WEB</category>
         <category>HTB</category>
-        <category>mobile</category>
         <category>比赛</category>
-        <category>reverse</category>
+        <category>mobile</category>
         <category>CTF</category>
         <category>记录贴</category>
+        <category>reverse</category>
         <item>
             <guid isPermalink="true">https://lookhui.github.io/HTB-reverse/</guid>
             <title>HTB-reverse</title>
