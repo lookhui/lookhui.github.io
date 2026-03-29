@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Waves background">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1c36"/>
+      <stop offset="100%" stop-color="#1f4e79"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 180C146 142 278 142 422 180C556 214 666 286 812 296C1022 310 1172 196 1370 196C1462 196 1540 218 1600 246V900H0Z" fill="#7be0ff" fill-opacity="0.12"/>
+  <path d="M0 270C146 234 282 232 436 274C584 314 726 392 892 392C1050 392 1180 320 1326 312C1436 306 1526 322 1600 350" fill="none" stroke="#d1f8ff" stroke-opacity="0.28" stroke-width="30" stroke-linecap="round"/>
+  <path d="M0 380C176 344 328 346 476 386C634 428 744 510 908 516C1084 524 1232 430 1400 426C1478 424 1548 438 1600 456" fill="none" stroke="#8ad7ff" stroke-opacity="0.22" stroke-width="44" stroke-linecap="round"/>
+  <path d="M0 650C160 612 316 614 486 654C634 688 790 760 960 756C1122 752 1244 682 1388 668C1472 660 1542 664 1600 680V900H0Z" fill="#0b2740" fill-opacity="0.76"/>
+  <path d="M0 736C204 688 388 692 558 732C724 772 894 842 1062 836C1226 830 1362 760 1498 744C1534 740 1568 740 1600 744V900H0Z" fill="#123a56" fill-opacity="0.84"/>
+</svg>
