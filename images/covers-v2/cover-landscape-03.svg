@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Blog cover">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#99f6e4"/><stop offset="100%" stop-color="#bfdbfe"/></linearGradient></defs><rect width="1600" height="900" fill="url(#g)"/>
+<circle cx="680" cy="180" r="90" fill="#fff7cc" fill-opacity="0.9"/><path d="M0 560 C180 434, 320 536, 520 500 C700 480, 860 420, 1040 470 C1200 515, 1380 505, 1600 440 L1600 900 L0 900 Z" fill="#6fa47a"/><path d="M0 610 C150 560, 350 640, 520 600 C740 548, 960 560, 1160 620 C1320 670, 1480 640, 1600 590 L1600 900 L0 900 Z" fill="#3b6d63"/><path d="M0 680 C240 640, 480 710, 760 670 C1040 630, 1290 720, 1600 650 L1600 900 L0 900 Z" fill="#22424a"/><ellipse cx="1060" cy="700" rx="250" ry="28" fill="#d8f3ff" fill-opacity="0.35"/>
+</svg>
