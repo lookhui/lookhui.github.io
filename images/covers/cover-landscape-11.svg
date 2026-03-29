@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Landscape cover 11">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#143109"/>
+      <stop offset="100%" stop-color="#2f5233"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#93c47d" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#93c47d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="1230" cy="268" r="120" fill="#ffe599" fill-opacity="0.92"/>
+  <circle cx="1230" cy="268" r="180" fill="#ffe599" fill-opacity="0.12"/>
+  <polygon points="0,900 0,513 49,506 239,337 349,306 503,464 674,262 848,351 984,423 1138,395 1285,248 1409,279 1529,438 1667,245 1784,516 1600,513 1600,900" fill="rgba(32,59,26,0.42)"/>
+  <polygon points="0,900 0,650 118,544 286,521 485,566 597,434 749,448 895,527 1081,571 1236,503 1342,496 1549,632 1755,566 1600,650 1600,900" fill="rgba(32,59,26,0.72)"/>
+  <polygon points="0,900 0,765 14,744 173,560 292,716 391,745 564,732 655,623 767,664 857,606 1014,737 1194,715 1302,621 1397,672 1554,644 1656,602 1795,660 1600,765 1600,900" fill="rgba(22,45,19,0.94)"/>
+  <rect x="0" y="505" width="1600" height="110" fill="rgba(147,196,125,0.1)"/>
+  <path d="M 0 568 L 200 625 L 400 584 L 600 617 L 800 627 L 1000 619 L 1200 589 L 1400 571 L 1600 584" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="8" stroke-linecap="round"/>
+</svg>
