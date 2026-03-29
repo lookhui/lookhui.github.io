@@ -1,68 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Abstract person eating watermelon avatar">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Cute round face eating watermelon avatar">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#eef7f2"/>
-      <stop offset="45%" stop-color="#d8efe6"/>
-      <stop offset="100%" stop-color="#c5e6db"/>
-    </linearGradient>
-    <linearGradient id="blob1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#18252f"/>
-      <stop offset="100%" stop-color="#2d4750"/>
+      <stop offset="0%" stop-color="#f2fbf7"/>
+      <stop offset="55%" stop-color="#dff3ea"/>
+      <stop offset="100%" stop-color="#cce9dd"/>
     </linearGradient>
     <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#243942"/>
-      <stop offset="100%" stop-color="#14252c"/>
+      <stop offset="0%" stop-color="#35515b"/>
+      <stop offset="100%" stop-color="#21353d"/>
     </linearGradient>
     <linearGradient id="melon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff6d7d"/>
-      <stop offset="100%" stop-color="#ff4a62"/>
+      <stop offset="0%" stop-color="#ff7f8f"/>
+      <stop offset="100%" stop-color="#ff5870"/>
     </linearGradient>
-    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="10"/>
-    </filter>
   </defs>
 
   <rect width="512" height="512" rx="96" fill="url(#bg)"/>
-  <circle cx="114" cy="118" r="72" fill="#ffffff" fill-opacity="0.45"/>
-  <circle cx="410" cy="92" r="56" fill="#ffffff" fill-opacity="0.35"/>
-  <ellipse cx="256" cy="456" rx="150" ry="26" fill="#7ca596" fill-opacity="0.2"/>
+  <circle cx="112" cy="110" r="70" fill="#ffffff" fill-opacity="0.38"/>
+  <circle cx="412" cy="92" r="52" fill="#ffffff" fill-opacity="0.32"/>
+  <ellipse cx="256" cy="446" rx="142" ry="24" fill="#8db5a6" fill-opacity="0.16"/>
 
-  <g filter="url(#blur)" opacity="0.22">
-    <path d="M78 318c22-78 102-138 210-122 84 12 122 64 148 112-38 34-76 52-160 62-105 12-164-10-198-52z" fill="#6ea290"/>
-  </g>
-
-  <path d="M110 212c22-52 64-90 138-110 104-28 184 8 226 80-52-18-104-14-150 8-60 28-108 62-214 22z" fill="url(#blob1)" opacity="0.95"/>
-  <path d="M128 384c8-80 54-130 126-130 74 0 124 48 132 130-34 28-74 42-130 42-52 0-94-12-128-42z" fill="url(#shirt)"/>
+  <path d="M150 382c10-84 62-130 106-130 46 0 98 46 106 130-32 28-70 40-106 40-38 0-76-12-106-40z" fill="url(#shirt)"/>
 
   <g>
-    <circle cx="248" cy="210" r="78" fill="#ffe9cc"/>
-    <path d="M178 196c8-56 50-94 100-94 38 0 68 16 92 48-24 8-42 30-52 56-22-16-52-24-72-18-26 6-44 12-68 8z" fill="#22313a"/>
-    <path d="M178 196c10 18 24 22 46 22 26 0 44-10 66-10 28 0 54 14 78 14 8 0 18 0 28-4-4 44-36 108-104 108-76 0-114-64-114-130z" fill="#ffe9cc"/>
-    <circle cx="222" cy="222" r="6" fill="#22313a"/>
-    <circle cx="286" cy="222" r="6" fill="#22313a"/>
-    <path d="M232 260c14 10 34 10 48 0" fill="none" stroke="#df9a8c" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="198" cy="246" r="10" fill="#ffc6bb" fill-opacity="0.55"/>
-    <circle cx="314" cy="246" r="10" fill="#ffc6bb" fill-opacity="0.55"/>
+    <circle cx="256" cy="208" r="92" fill="#ffe5ca"/>
+    <path d="M170 188c4-56 44-92 94-92 44 0 82 30 92 78-16-8-34-12-52-12-22 0-40 6-56 14-20 10-38 14-78 12z" fill="#2f3a42"/>
+    <path d="M176 158c12-18 36-32 58-32 26 0 48 10 68 28 6-6 18-10 28-10 22 0 36 12 42 26-14-6-30-6-42-2-10-10-18-16-28-20-10 0-18 4-24 10-22-10-36-12-52-6-18 0-34 2-50 6z" fill="#2f3a42"/>
+    <circle cx="222" cy="214" r="7" fill="#24343a"/>
+    <circle cx="290" cy="214" r="7" fill="#24343a"/>
+    <path d="M237 254c12 10 26 10 38 0" fill="none" stroke="#de9488" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="196" cy="242" r="12" fill="#ffbeb8" fill-opacity="0.55"/>
+    <circle cx="316" cy="242" r="12" fill="#ffbeb8" fill-opacity="0.55"/>
   </g>
 
   <g>
-    <path d="M170 300c26 10 48 30 62 56-28 18-62 22-94 12 4-24 12-46 32-68z" fill="#ffe9cc"/>
-    <path d="M342 300c-24 12-44 30-58 56 28 18 60 22 90 12-4-24-12-46-32-68z" fill="#ffe9cc"/>
+    <path d="M162 306c22 12 38 30 50 52-26 12-52 14-76 6 4-22 10-40 26-58z" fill="#ffe5ca"/>
+    <path d="M350 306c-22 12-38 30-50 52 26 12 52 14 76 6-4-22-10-40-26-58z" fill="#ffe5ca"/>
   </g>
 
-  <g transform="translate(116 280) rotate(-6 140 60)">
-    <path d="M20 88c36-62 88-88 148-88 58 0 112 28 148 88-64 34-118 50-180 50-52 0-86-8-116-18-10-4-20-10-20-32z" fill="#2b9b5d"/>
-    <path d="M32 84c34-52 80-76 136-76 52 0 100 22 136 76-54 26-106 40-158 40-44 0-80-8-114-18-8-4-14-8-14-22z" fill="url(#melon)"/>
-    <path d="M48 88c42 18 82 24 140 24 56 0 92-8 120-18-36 28-88 44-154 44-46 0-90-10-126-30 4-6 10-12 20-20z" fill="#fff3df" fill-opacity="0.92"/>
-    <ellipse cx="102" cy="70" rx="5" ry="8" fill="#2a2224"/>
-    <ellipse cx="142" cy="56" rx="5" ry="8" fill="#2a2224"/>
-    <ellipse cx="182" cy="66" rx="5" ry="8" fill="#2a2224"/>
-    <ellipse cx="224" cy="56" rx="5" ry="8" fill="#2a2224"/>
+  <g transform="translate(112 286)">
+    <path d="M20 78c28-52 86-82 144-82s116 30 144 82c-30 34-82 56-144 56s-114-22-144-56z" fill="#2da061"/>
+    <path d="M34 74c26-40 74-64 130-64s104 24 130 64c-34 26-78 40-130 40s-96-14-130-40z" fill="url(#melon)"/>
+    <path d="M48 78c32 16 72 24 116 24 50 0 92-10 128-28-26 30-74 50-128 50-48 0-90-14-122-38z" fill="#fff4e6"/>
+    <ellipse cx="96" cy="58" rx="4" ry="7" fill="#2c2325"/>
+    <ellipse cx="132" cy="48" rx="4" ry="7" fill="#2c2325"/>
+    <ellipse cx="172" cy="58" rx="4" ry="7" fill="#2c2325"/>
+    <ellipse cx="210" cy="48" rx="4" ry="7" fill="#2c2325"/>
   </g>
 
   <g stroke="#ffffff" stroke-opacity="0.45" fill="none" stroke-linecap="round">
-    <path d="M84 416c34 16 74 24 116 24" stroke-width="4"/>
-    <path d="M322 86c22 4 42 12 64 28" stroke-width="4"/>
-    <path d="M366 406c24-8 44-20 62-38" stroke-width="4"/>
+    <path d="M88 402c30 16 66 24 100 24" stroke-width="4"/>
+    <path d="M328 84c20 6 38 16 54 28" stroke-width="4"/>
+    <path d="M370 400c18-8 34-18 48-34" stroke-width="4"/>
   </g>
 </svg>
