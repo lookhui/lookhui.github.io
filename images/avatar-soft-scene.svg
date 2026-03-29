@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Soft low-key animated avatar">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e7f1f4"/>
+      <stop offset="55%" stop-color="#cfdde4"/>
+      <stop offset="100%" stop-color="#b7c8d3"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#28475d"/>
+      <stop offset="100%" stop-color="#162733"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="1%" y2="0%">
+      <stop offset="0%" stop-color="#6d8392"/>
+      <stop offset="100%" stop-color="#4b6271"/>
+    </linearGradient>
+    <radialGradient id="cityGlow" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ffdca8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffdca8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8d6" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#fff8d6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="suit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e7edf1"/>
+    </linearGradient>
+    <linearGradient id="hood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fefefe"/>
+      <stop offset="100%" stop-color="#dee6ec"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#87a9b8"/>
+      <stop offset="100%" stop-color="#5d7d8f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="44" y="44" width="424" height="424" rx="72" fill="#ffffff" fill-opacity="0.18"/>
+
+  <rect x="78" y="86" width="356" height="220" rx="30" fill="url(#window)"/>
+  <rect x="244" y="86" width="8" height="220" fill="#90a8b5" fill-opacity="0.4"/>
+  <rect x="78" y="194" width="356" height="8" fill="#90a8b5" fill-opacity="0.4"/>
+
+  <g>
+    <circle cx="146" cy="132" r="42" fill="url(#cityGlow)"/>
+    <circle cx="344" cy="122" r="52" fill="url(#cityGlow)" fill-opacity="0.8"/>
+    <circle cx="292" cy="228" r="26" fill="#ffe3b0" fill-opacity="0.7"/>
+    <circle cx="380" cy="236" r="16" fill="#ffd497" fill-opacity="0.65"/>
+    <circle cx="180" cy="238" r="18" fill="#ffd497" fill-opacity="0.55"/>
+    <circle cx="106" cy="260" r="12" fill="#ffe3b0" fill-opacity="0.5"/>
+  </g>
+
+  <path d="M78 286 h356 v88 c0 24 -18 44 -42 44 H120 c-24 0 -42 -20 -42 -44z" fill="url(#floor)"/>
+  <path d="M78 328 C162 300, 218 358, 300 332 C350 316, 394 330, 434 314 V374 c0 24 -18 44 -42 44 H120 c-24 0 -42 -20 -42 -44z" fill="#3d5260" fill-opacity="0.34"/>
+
+  <g transform="translate(0 8)">
+    <ellipse cx="262" cy="392" rx="88" ry="20" fill="#6c8391" fill-opacity="0.22"/>
+
+    <path d="M186 364c2-62 42-108 86-108s84 46 86 108c-20 24-52 38-86 38s-66-14-86-38z" fill="url(#suit)"/>
+    <path d="M206 246c0-36 28-64 64-64s64 28 64 64c0 34-26 62-64 62s-64-28-64-62z" fill="url(#hood)"/>
+    <path d="M218 236c8-22 28-36 54-36c26 0 46 14 54 36c-10-10-26-16-54-16s-44 6-54 16z" fill="#edf3f6"/>
+
+    <circle cx="250" cy="244" r="4.5" fill="#4b6472"/>
+    <circle cx="294" cy="244" r="4.5" fill="#4b6472"/>
+    <path d="M254 244h36" stroke="#4b6472" stroke-width="3.5" stroke-linecap="round"/>
+
+    <path d="M228 320c14 16 26 30 32 52" fill="none" stroke="#dbe4ea" stroke-width="18" stroke-linecap="round"/>
+    <path d="M314 320c-12 12-28 30-34 52" fill="none" stroke="#dbe4ea" stroke-width="18" stroke-linecap="round"/>
+
+    <path d="M214 366c4-12 14-20 28-24c20-4 44 4 56 18c-16 10-34 16-52 16c-12 0-22-2-32-10z" fill="url(#accent)"/>
+    <path d="M238 346c10 8 30 10 46 0" fill="none" stroke="#f8fbfc" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="404" cy="96" r="44" fill="url(#lampGlow)"/>
+    <circle cx="404" cy="96" r="10" fill="#fff9df"/>
+  </g>
+</svg>
