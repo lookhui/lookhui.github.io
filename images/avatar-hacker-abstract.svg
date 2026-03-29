@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Abstract hacker avatar">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07131a"/>
+      <stop offset="45%" stop-color="#0c2022"/>
+      <stop offset="100%" stop-color="#020608"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="34%" r="60%">
+      <stop offset="0%" stop-color="#6bffd3" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#27d3a2" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#27d3a2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10252a"/>
+      <stop offset="100%" stop-color="#050b0d"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1f20"/>
+      <stop offset="100%" stop-color="#091112"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="180" r="180" fill="url(#glow)"/>
+
+  <g stroke="#1fd7a0" stroke-opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M48 128h88l24-24h64" stroke-width="3"/>
+    <path d="M310 96h52l20 20h82" stroke-width="3"/>
+    <path d="M64 392h92l20-16h76" stroke-width="3"/>
+    <path d="M304 406h54l18-18h88" stroke-width="3"/>
+    <path d="M108 68v42" stroke-width="2"/>
+    <path d="M418 74v56" stroke-width="2"/>
+    <path d="M432 336v52" stroke-width="2"/>
+    <path d="M86 330v70" stroke-width="2"/>
+    <circle cx="48" cy="128" r="6" fill="#6bffd3"/>
+    <circle cx="464" cy="116" r="6" fill="#6bffd3"/>
+    <circle cx="64" cy="392" r="6" fill="#6bffd3"/>
+    <circle cx="464" cy="388" r="6" fill="#6bffd3"/>
+    <circle cx="108" cy="62" r="5" fill="#6bffd3"/>
+    <circle cx="418" cy="68" r="5" fill="#6bffd3"/>
+  </g>
+
+  <g>
+    <path d="M136 210c18-98 89-154 120-154s102 56 120 154c-24-22-42-26-56-28-8 78-38 180-64 180s-56-102-64-180c-14 2-32 6-56 28z" fill="url(#hood)"/>
+    <path d="M176 236c0-68 40-112 80-112s80 44 80 112c0 72-34 124-80 124s-80-52-80-124z" fill="url(#face)"/>
+    <path d="M164 212c22-38 56-58 92-58s70 20 92 58" fill="none" stroke="#17363a" stroke-width="10" stroke-linecap="round"/>
+
+    <g filter="url(#softGlow)">
+      <ellipse cx="214" cy="236" rx="24" ry="12" fill="#6bffd3" fill-opacity="0.85"/>
+      <ellipse cx="298" cy="236" rx="24" ry="12" fill="#6bffd3" fill-opacity="0.85"/>
+    </g>
+    <path d="M190 236h48" stroke="#9dffe0" stroke-width="6" stroke-linecap="round"/>
+    <path d="M274 236h48" stroke="#9dffe0" stroke-width="6" stroke-linecap="round"/>
+    <path d="M238 236h36" stroke="#49f0bc" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/>
+
+    <path d="M202 286c18 14 90 14 108 0" fill="none" stroke="#1ddaa6" stroke-opacity="0.45" stroke-width="4" stroke-linecap="round"/>
+    <path d="M256 266v48" stroke="#1ddaa6" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="5 8" stroke-linecap="round"/>
+  </g>
+
+  <g fill="#6bffd3" fill-opacity="0.18">
+    <path d="M126 420c26-50 74-86 130-96-34 28-51 58-60 96z"/>
+    <path d="M386 420c-26-50-74-86-130-96 34 28 51 58 60 96z"/>
+  </g>
+</svg>
